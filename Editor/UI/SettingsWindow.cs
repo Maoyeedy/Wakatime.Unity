@@ -52,10 +52,15 @@ namespace Wakatime
 
                 EditorGUILayout.BeginHorizontal();
                 bool reset = GUILayout.Button("Reset To Default");
+                bool useEnv = GUILayout.Button("Use ~/wakatime.cfg");
                 EditorGUILayout.EndHorizontal();
                 if (reset)
                 {
                     settings.RestoreDefaults();
+                }
+                if (useEnv)
+                {
+                    settings.TryUseEnvConfig();
                 }
 
                 EditorGUILayout.BeginHorizontal();

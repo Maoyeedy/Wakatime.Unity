@@ -1,7 +1,8 @@
 ﻿#if (UNITY_EDITOR)
 using System;
 using UnityEngine;
-using System.IO; // Added for Path.Combine
+using System.IO;
+using NUnit; // Added for Path.Combine
 
 namespace Wakatime
 {
@@ -70,6 +71,24 @@ namespace Wakatime
                 Debug.LogWarning($"Please manually select WakaTime CLI executable.");
                 WakatimeCliBinary = "";
                 return;
+            }
+        }
+
+        public void TryUseEnvConfig()
+        {
+            var config = EnvReader.GetConfigInEnv();
+            if (config == null)
+            {
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(config.ApiKey))
+            {
+                ApiKey = config.ApiKey;
+            }
+            if (!string.IsNullOrEmpty(config.ApiUrl))
+            {
+                ApiUri = config.ApiUrl;
             }
         }
 
