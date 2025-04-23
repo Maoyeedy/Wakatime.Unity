@@ -29,7 +29,9 @@ namespace Wakatime
                 "--time",
                 Time,
                 "--plugin",
-                Plugin
+                Plugin,
+                "--language",
+                "UnityEditor" // Otherwise it will be "Unknown"
             };
 
             // Add ApiUri if it's not the default
