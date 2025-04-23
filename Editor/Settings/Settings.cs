@@ -12,6 +12,9 @@ namespace Wakatime
         [Setting("WakaTime/APIKey")]
         public string ApiKey { get; set; } = "";
 
+        [Setting("WakaTime/ApiUri")]
+        public string ApiUri { get; set; } = "https://api.wakatime.com/api/v1/";
+
         [Setting("WakaTime/GitOptions")]
         public GitClientTypes GitOptions { get; set; } = GitClientTypes.Disabled;
 
@@ -23,9 +26,6 @@ namespace Wakatime
 
         [Setting("WakaTime/LogLevel")]
         public LogLevels LogLevel { get; set; } = LogLevels.Informational;
-
-        [Setting("WakaTime/ApiUri")]
-        public string ApiUri { get; set; } = "https://api.wakatime.com/api/v1/";
 
 
         public string ProjectName => Application.productName;

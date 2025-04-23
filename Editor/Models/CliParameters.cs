@@ -34,10 +34,10 @@ namespace Wakatime
                 "UnityEditor" // Otherwise it will be "Unknown"
             };
 
-            // Add ApiUri if it's not the default
+            // Add ApiUri only if it's not the default
             if (!string.IsNullOrEmpty(ApiUri) && ApiUri != "https://api.wakatime.com/api/v1/")
             {
-                parameters.Add("--api-url"); // Correct parameter name is --api-url
+                parameters.Add("--api-url");
                 parameters.Add(ApiUri);
             }
 
