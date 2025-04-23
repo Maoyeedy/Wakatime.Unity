@@ -101,7 +101,7 @@ namespace Wakatime
         {
             var entity = GetEntity(scene);
             var heartbeat = CreateHeartbeat(entity);
-			heartbeat.IsWrite = true;
+            heartbeat.IsWrite = true;
             ThrowHeartbeat(heartbeat);
         }
 
@@ -124,14 +124,17 @@ namespace Wakatime
         private Heartbeat CreateHeartbeat(string entity)
         {
             string workingDir = Path.GetDirectoryName(entity);
+
             Heartbeat heartbeat = new Heartbeat
             {
                 Entity = entity,
                 EntityType = EntityTypes.File,
-                Timestamp = DateTime.Now.ToUnixTimeFloat().ToString(CultureInfo.InvariantCulture),
+                // Timestamp = DateTime.Now.ToUnixTime().ToString(CultureInfo.InvariantCulture), // Long, From DateTimeExtensions
+                // Timestamp = DateTime.Now.ToUnixTimeFloat().ToString(CultureInfo.InvariantCulture), // Float, From DateTimeExtensions
+                Timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString(CultureInfo.InvariantCulture), // Long, From System.DateTimeOffset
                 Project = Settings.ProjectName,
                 BranchName = GitClient?.GetBranchName(workingDir),
-				IsWrite = false,
+                IsWrite = false,
                 Category = Application.isPlaying ? HeartbeatCategories.Debugging : HeartbeatCategories.Coding,
             };
             return heartbeat;
