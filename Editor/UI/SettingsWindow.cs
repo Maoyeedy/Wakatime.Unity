@@ -22,7 +22,7 @@ namespace Wakatime
 
         void OnGUI()
         {
-            if(settings != null)
+            if (settings != null)
             {
                 settings.Enabled = EditorGUILayout.Toggle("Enable WakaTime", settings.Enabled);
                 settings.LogLevel = (LogLevels)EditorGUILayout.EnumPopup("Log level", settings.LogLevel);
@@ -42,7 +42,7 @@ namespace Wakatime
 
                 EditorGUILayout.BeginHorizontal();
                 settings.ApiUri = EditorGUILayout.TextField("API URI", settings.ApiUri);
-                EditorGUILayout.LabelField("Default: https://api.wakatime.com/api/v1/");
+                // EditorGUILayout.LabelField("Default: https://api.wakatime.com/api/v1/");
                 EditorGUILayout.EndHorizontal();
 
                 //settings.ClientOptions = (ClientTypes)EditorGUILayout.EnumPopup("Client options", settings.ClientOptions);
@@ -50,9 +50,10 @@ namespace Wakatime
                 if (GUILayout.Button("Open dashboard"))
                     Application.OpenURL("https://wakatime.com/dashboard");
 
+                var halfWidth = (EditorGUIUtility.currentViewWidth - 10) / 2;
                 EditorGUILayout.BeginHorizontal();
-                bool reset = GUILayout.Button("Reset To Default");
-                bool useEnv = GUILayout.Button("Use ~/wakatime.cfg");
+                bool reset = GUILayout.Button("Reset To Default", GUILayout.Width(halfWidth));
+                bool useEnv = GUILayout.Button("Use ~/wakatime.cfg", GUILayout.Width(halfWidth));
                 EditorGUILayout.EndHorizontal();
                 if (reset)
                 {
@@ -64,8 +65,21 @@ namespace Wakatime
                 }
 
                 EditorGUILayout.BeginHorizontal();
-                bool save = GUILayout.Button("Save preferences");
-                bool cancel = GUILayout.Button("Cancel");
+                bool save = GUILayout.Button("Save preferences", GUILayout.Width(halfWidth));
+                bool cancel = GUILayout.Button("Cancel", GUILayout.Width(halfWidth));
+                EditorGUILayout.EndHorizontal();
+
+                EditorGUILayout.BeginHorizontal();
+                GUILayout.FlexibleSpace(); // Optional: Centers the buttons if desired
+                if (GUILayout.Button("Save preferences", GUILayout.ExpandWidth(true)))
+                {
+                    // Save logic here
+                }
+                if (GUILayout.Button("Cancel", GUILayout.ExpandWidth(true)))
+                {
+                    // Cancel logic here
+                }
+                GUILayout.FlexibleSpace(); // Optional: Centers the buttons if desired
                 EditorGUILayout.EndHorizontal();
 
                 if (save)
