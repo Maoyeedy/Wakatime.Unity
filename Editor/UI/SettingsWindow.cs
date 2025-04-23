@@ -50,6 +50,13 @@ namespace Wakatime
                 if (GUILayout.Button("Open dashboard"))
                     Application.OpenURL("https://wakatime.com/dashboard");
 
+                EditorGUILayout.BeginHorizontal();
+                bool reset = GUILayout.Button("Reset To Default");
+                EditorGUILayout.EndHorizontal();
+                if (reset)
+                {
+                    settings.RestoreDefaults();
+                }
 
                 EditorGUILayout.BeginHorizontal();
                 bool save = GUILayout.Button("Save preferences");

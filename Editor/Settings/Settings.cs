@@ -1,6 +1,7 @@
 ﻿#if (UNITY_EDITOR)
 using System;
 using UnityEngine;
+using System.IO; // Added for Path.Combine
 
 namespace Wakatime
 {
@@ -39,6 +40,17 @@ namespace Wakatime
         //public string GithubReleasesAlphaUrl => "https://api.github.com/repos/wakatime/wakatime-cli/releases?per_page=1";
         //public string GithubReleasesStableUrl =>"https://api.github.com/repos/wakatime/wakatime-cli/releases/latest";
 
+
+        public void RestoreDefaults()
+        {
+            // Enabled = false;
+            // LogLevel = LogLevels.Informational;
+            ApiKey = "";
+            ApiUri = "https://api.wakatime.com/api/v1/";
+            GitOptions = GitClientTypes.Disabled;
+            WakatimeHandlerType = WakatimeHandlerTypes.WakatimeCli;
+            WakatimeCliBinary = Path.Combine(Application.dataPath, "Wakatime.Unity", "Editor", "Utils", "wakatime.exe");
+        }
 
         public void Dispose()
         {
