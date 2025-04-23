@@ -51,7 +51,7 @@ namespace Wakatime
             WakatimeHandlerType = WakatimeHandlerTypes.WakatimeCli;
 
             // First try: use PATH
-            string path = GetWakatimeInPath();
+            string path = EnvReader.GetWakatimeInPath();
             if (!string.IsNullOrEmpty(path))
             {
                 WakatimeCliBinary = path;
@@ -71,40 +71,6 @@ namespace Wakatime
                 WakatimeCliBinary = "";
                 return;
             }
-        }
-
-        // TODO: This'd better be in a separate class in Utils.
-        public static string GetWakatimeInPath()
-        {
-            string executableName = Application.platform == RuntimePlatform.WindowsEditor
-                ? "wakatime-cli.exe"
-                : "wakatime-cli";
-
-            string pathVariable = Environment.GetEnvironmentVariable("PATH");
-            if (string.IsNullOrEmpty(pathVariable))
-            {
-                return null;
-            }
-
-            var paths = pathVariable.Split(Path.PathSeparator);
-
-            foreach (var path in paths)
-            {
-                try
-                {
-                    string fullPath = Path.Combine(path.Trim(), executableName);
-                    if (File.Exists(fullPath))
-                    {
-                        return fullPath;
-                    }
-                }
-                catch (System.Security.SecurityException)
-                {
-                    Debug.LogWarning($"Permission denied accessing path: {path}");
-                }
-            }
-
-            return null;
         }
 
         public void Dispose()
