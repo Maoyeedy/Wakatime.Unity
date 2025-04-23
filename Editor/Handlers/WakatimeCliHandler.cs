@@ -30,7 +30,8 @@ namespace Wakatime
             _cliParameters = new CliParameters
             {
                 Key = settings.ApiKey,
-                Plugin = $"Unity/{Application.unityVersion} {packageInfo.Name}/{packageInfo.Version}"
+                Plugin = $"Unity/{Application.unityVersion} {packageInfo.Name}/{packageInfo.Version}",
+                ApiUri = settings.ApiUri // Initialize ApiUri from settings
             };
 
             _timer = new Timer(10000);
@@ -134,7 +135,7 @@ namespace Wakatime
                 _timer.Dispose();
             }
 
-            // make sure the queue is empty	
+            // make sure the queue is empty
             ProcessHeartbeats();
         }
 

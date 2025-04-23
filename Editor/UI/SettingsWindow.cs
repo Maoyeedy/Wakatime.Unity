@@ -40,7 +40,11 @@ namespace Wakatime
                     Application.OpenURL("https://wakatime.com/api-key");
                 EditorGUILayout.EndHorizontal();
 
-                
+                EditorGUILayout.BeginHorizontal();
+                settings.ApiUri = EditorGUILayout.TextField("API URI", settings.ApiUri);
+                EditorGUILayout.LabelField("Default: https://api.wakatime.com/api/v1/");
+                EditorGUILayout.EndHorizontal();
+
                 //settings.ClientOptions = (ClientTypes)EditorGUILayout.EnumPopup("Client options", settings.ClientOptions);
 
                 if (GUILayout.Button("Open dashboard"))

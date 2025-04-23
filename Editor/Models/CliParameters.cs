@@ -11,6 +11,7 @@ namespace Wakatime
         public string File { get; set; }
         public string Time { get; set; }
         public string Plugin { get; set; }
+        public string ApiUri { get; set; } // Add ApiUri property
         public HeartbeatCategories? Category { get; set; }
         public EntityTypes? EntityType { get; set; }
         public bool IsWrite { get; set; }
@@ -30,6 +31,13 @@ namespace Wakatime
                 "--plugin",
                 Plugin
             };
+
+            // Add ApiUri if it's not the default
+            if (!string.IsNullOrEmpty(ApiUri) && ApiUri != "https://api.wakatime.com/api/v1/")
+            {
+                parameters.Add("--api-url"); // Correct parameter name is --api-url
+                parameters.Add(ApiUri);
+            }
 
             if (Category != null)
             {
@@ -60,6 +68,4 @@ namespace Wakatime
         }
     }
 }
-
-
 #endif
