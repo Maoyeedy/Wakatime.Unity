@@ -19,3 +19,4 @@ Forked from [vanBassum/Wakatime.Unity](https://github.com/vanBassum/Wakatime.Uni
 - [ ] Add a `Detect System wakatime-cli` button, and remove bundled wakatime-cli.
 - [ ] Add a toolbar button to open settings panel, next to time status.
 - [ ] Different mode for displaying time status: `All Time`, `Today`, `Last 7 days`.
+- [ ] Test Run on Linux and macOS
