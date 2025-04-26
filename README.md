@@ -14,3 +14,7 @@ Forked from [vanBassum/Wakatime.Unity](https://github.com/vanBassum/Wakatime.Uni
 1. Set language type to `UnityEditor`, so it won't show up as `unknown` in Wakatime/Wakapi
 2. Directly uses `System.DateTimeOffset` to prevent precision loss in float.
 3. More buttons to Read/Reset in Settings Panel.
+
+### TODO
+- [ ] Add `Detect System wakatime-cli` button, and remove bundled wakatime-cli.
+- [ ] Different mode for displaying time status: `All Time`, `Today`, `Last 7 days`.
