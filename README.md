@@ -20,3 +20,15 @@ Forked from [vanBassum/Wakatime.Unity](https://github.com/vanBassum/Wakatime.Uni
 - [ ] Add a toolbar button to open settings panel, next to time status.
 - [ ] Different mode for displaying time status: `All Time`, `Today`, `Last 7 days`.
 - [ ] Test run on Linux and macOS
+
+### Installation
+
+Package Manager - *Install Package from Git URL*
+```
+https://github.com/Maoyeedy/QuadSpriteProcessor.git
+```
+
+Or use [OpenUPM CLI](https://openupm.com/packages/com.maoyeedy.wakatime/)
+```
+openupm add com.maoyeedy.wakatime
+```
