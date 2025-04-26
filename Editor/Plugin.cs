@@ -29,8 +29,8 @@ namespace Wakatime
             try
             {
                 PackageInfo = new PackageInfo();
-                PackageInfo.Name = "com.vanbassum.wakatime";
-                PackageInfo.Version = "0.2.0";
+                PackageInfo.Name = "com.maoyeedy.wakatime";
+                PackageInfo.Version = "1.0.0";
 
                 Logger = new Logger("Wakatime", LogLevels.Informational);
                 SettingsManager = new SettingsManager(Logger);
