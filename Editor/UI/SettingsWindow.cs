@@ -9,7 +9,7 @@ namespace Wakatime
     public class SettingsWindow : EditorWindow
     {
         static Settings settings;
-        [MenuItem("Services/vanbassum/WakaTime")]
+        [MenuItem("Tools/WakaTime")]
         static void Init()
         {
             SettingsWindow window = (SettingsWindow)GetWindow(typeof(SettingsWindow), false, "Wakatime settings");
@@ -67,19 +67,6 @@ namespace Wakatime
                 EditorGUILayout.BeginHorizontal();
                 bool save = GUILayout.Button("Save preferences", GUILayout.Width(halfWidth));
                 bool cancel = GUILayout.Button("Cancel", GUILayout.Width(halfWidth));
-                EditorGUILayout.EndHorizontal();
-
-                EditorGUILayout.BeginHorizontal();
-                GUILayout.FlexibleSpace(); // Optional: Centers the buttons if desired
-                if (GUILayout.Button("Save preferences", GUILayout.ExpandWidth(true)))
-                {
-                    // Save logic here
-                }
-                if (GUILayout.Button("Cancel", GUILayout.ExpandWidth(true)))
-                {
-                    // Cancel logic here
-                }
-                GUILayout.FlexibleSpace(); // Optional: Centers the buttons if desired
                 EditorGUILayout.EndHorizontal();
 
                 if (save)
