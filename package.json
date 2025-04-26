@@ -1,12 +1,13 @@
 {
-  "name": "com.vanbassum.wakatime",
+  "name": "com.maoyeedy.wakatime",
   "displayName": "WakaTime",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "unity": "2020.1",
-  "description": "WakaTime plugin for Unity",
+  "description": "WakaTime/Wakapi plugin for Unity",
   "keywords": [
     "unity",
     "wakatime",
+    "wakapi",
     "stats",
     "tracker",
     "programming"
