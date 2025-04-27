@@ -1,5 +1,7 @@
 # Wakatime/Wakapi for Unity
 
+[![openupm](https://img.shields.io/npm/v/com.maoyeedy.wakatime?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.maoyeedy.wakatime/)
+
 <img width="853" alt="25 04 23_08 00 42" src="https://github.com/user-attachments/assets/231661e9-2419-4c18-a9b7-2fa96606a048" />
 
 Forked from [vanBassum/Wakatime.Unity](https://github.com/vanBassum/Wakatime.Unity).
